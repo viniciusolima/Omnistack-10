@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const routes = require('./routes')
 const app = express();
 
 mongoose.connect(
@@ -12,9 +12,6 @@ mongoose.connect(
 );
 
 app.use(express.json());
-
-app.get('/', (request, response) => {
-  return response.json({name: 'Vinicius'})
-});
+app.use(routes);
 
 app.listen('3000');
